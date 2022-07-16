@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +40,28 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.verti-border{
+  border-top: #282c34 solid 2px;
+  border-bottom: #282c34 solid 2px;
+}
+
+.hori-border{
+  border-left: #282c34 solid 2px;
+  border-right: #282c34 solid 2px;
+}
+
+table{
+  margin: auto;
+  width: 60vw;
+  height: 60vh;
+}
+
+tr,td{
+  width: 150px;
+  height: 150px;
+  margin: 0;
+  padding: 0;
 }
