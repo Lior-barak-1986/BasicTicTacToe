@@ -3,7 +3,7 @@ import Board from "./Board";
 
 export default function Game(props) {
   const [turn, setTurn] = useState(true);
-  const [round, setRound] = useState(-1);
+  const [round, setRound] = useState(0);
   const [winner, setWinner] = useState(false);
   const [board, setBoard] = useState([
     ["", "", ""],
@@ -48,16 +48,27 @@ export default function Game(props) {
     )
       setWinner(true);
   };
+
+  const reset = () => {
+    setBoard([["", "", ""], ["", "", ""], ["", "", ""]]);
+    setRound(0);
+    setWinner(false);
+  };
   return (
     <div>
       <h1>Game</h1>
       <h3>
         {" "}
-        {winner 
+        {winner
           ? `The winner is ${round % 2 ? "X" : "O"} `
-          : `It is your turn ${round % 2 ? "O" : "X"}`}
+          : `${
+              round < 9
+                ? `It is your turn ${round % 2 ? "O" : "X"} `
+                : `Gameover`
+            }`}
       </h3>
       <Board board={board} onClick={onBoardClick} />
+      <button onClick={reset}>Reset</button>
     </div>
   );
 }
